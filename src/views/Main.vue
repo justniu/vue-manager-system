@@ -1,16 +1,22 @@
 <template>
     <el-container>
-        <el-header>Header</el-header>
+        <el-aside width="200px"><common-aside></common-aside></el-aside>
         <el-container>
-            <el-aside width="200px">Aside</el-aside>
+            <el-header><common-header></common-header></el-header>
             <el-main>Main</el-main>
         </el-container>
     </el-container>
 </template>
 
 <script>
+import CommonAside from '@/components/CommonAside';
+import CommonHeader from '@/components/CommonHeader';
 export default {
-    name: 'Main'
+    name: 'Main',
+    components: {
+        CommonAside,
+        CommonHeader
+    }
 };
 </script>
 
