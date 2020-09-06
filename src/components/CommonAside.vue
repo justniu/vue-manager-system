@@ -4,7 +4,7 @@
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{ item.label }}</span>
         </el-menu-item>
-        <el-submenu index="1" v-for="(item, index) in hasChildren" :key="index">
+        <el-submenu index="index" v-for="(item, index) in hasChildren" :key="index">
             <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>{{ item.label }}</span>
@@ -70,5 +70,6 @@ export default {
 <style scoped>
 .el-menu {
     height: 100vh;
+    border: none;
 }
 </style>

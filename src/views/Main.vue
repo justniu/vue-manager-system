@@ -20,4 +20,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.el-header {
+    background-color: #333;
+}
+</style>
