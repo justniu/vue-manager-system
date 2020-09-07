@@ -51,3 +51,25 @@ css: {
 * 在vuex里定义存取标签的tagList,方便非父子组件传递数据
 * 定义vuex中侧边栏点击后将菜单加入到tagList的方法
 * 定义vuex中点击标签后触发删除的方法
+
+### mock.js
+拦截ajax请求，返回数据，支持生成随机文本数字日期邮箱，图片等
+* 作用：生成随机数据，拦截ajax请求
+* 安装
+```
+yarn add mockjs
+npm installl mockjs
+```
+* 核心
+	* Mock.mock()
+	```
+	//根据数据模板生成随机数据
+	Mock.mock(rurl, rtype, template)
+	/*
+	* rurl: 表示需要拦截的url，可以是url正则
+	*/
+	```
+	* Mock.Random()
+		* 随机生成数据 	 	
+  
+	
