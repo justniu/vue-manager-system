@@ -38,4 +38,4 @@ css: {
 * elementUI安装
 > npm install -S element-ui
 > import ElementUI from 'element-ui'
-通过.use挂载
+通过.use挂载  
