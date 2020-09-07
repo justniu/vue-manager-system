@@ -18,10 +18,10 @@ vue create vue-manage-system
 4. Linter / Formatter ESLint + Prettier
 
 ## npm run lint
-ÅäÖÃ`.eslintrc.js`ÎÄ¼ş£¬¿ÉÒÔ×Ô¶¯¸ñÊ½»¯
+é…ç½®`.eslintrc.js`æ–‡ä»¶ï¼Œå¯ä»¥è‡ªåŠ¨æ ¼å¼åŒ–
 
-## scssÈ«¾Ö±äÁ¿
-ÔÚassetsÎÄ¼ş¼ĞÏÂ½¨Á¢scssÎÄ¼ş£¬¸ù¾İsassÓï·¨ÉùÃ÷css±äÁ¿£¬ÔÚvue.config.jsÖĞÉèÖÃ
+## scsså…¨å±€å˜é‡
+åœ¨assetsæ–‡ä»¶å¤¹ä¸‹å»ºç«‹scssæ–‡ä»¶ï¼Œæ ¹æ®sassè¯­æ³•å£°æ˜csså˜é‡ï¼Œåœ¨vue.config.jsä¸­è®¾ç½®
 ```
 css: {
         loaderOptions: {
@@ -33,9 +33,21 @@ css: {
 ```
 
 
-## ¿ª·¢
+## å¼€å‘
 
-* elementUI°²×°
+* elementUIå®‰è£…
 > npm install -S element-ui
 > import ElementUI from 'element-ui'
-Í¨¹ı.use¹ÒÔØ  
+é€šè¿‡.useæŒ‚è½½ 
+
+### el-container
+
+### commonAside 
+
+### commonHeader
+
+### ä½¿ç”¨vuexå®ç°åˆ‡æ¢tabé¡µåŠŸèƒ½
+* åœ¨Main.vueä¸­å¼•å…¥CommonTab.vueç»„ä»¶
+* åœ¨vuexé‡Œå®šä¹‰å­˜å–æ ‡ç­¾çš„tagList,æ–¹ä¾¿éçˆ¶å­ç»„ä»¶ä¼ é€’æ•°æ®
+* å®šä¹‰vuexä¸­ä¾§è¾¹æ ç‚¹å‡»åå°†èœå•åŠ å…¥åˆ°tagListçš„æ–¹æ³•
+* å®šä¹‰vuexä¸­ç‚¹å‡»æ ‡ç­¾åè§¦å‘åˆ é™¤çš„æ–¹æ³•
