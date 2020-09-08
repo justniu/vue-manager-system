@@ -14,7 +14,11 @@
                     <p>上次登录地点: <span>beijing</span></p>
                 </div>
             </el-card>
-            <el-card shadow="hover" style="height: 522px; margin-top: 20px"></el-card>
+            <el-card shadow="hover" style="height: 522px; margin-top: 20px">
+                <el-table :data="tableData">
+                    <el-table-column show-overflow-tooltip v-for="(item, key) in tableLabel" :key="key" :prop="key" :label="item"></el-table-column>
+                </el-table>
+            </el-card>
         </el-col>
         <el-col :span="16">
             <div class="num">
@@ -27,14 +31,14 @@
                 </el-card>
             </div>
             <el-card shadow="hover">
-                <div style="height:280px"></div>
+                <e-charts style="height:280px" :chartData="echartData.order" :isAxisChart="true"></e-charts>
             </el-card>
             <div class="graph">
                 <el-card shadow="hover">
-                    <div style="height:260px"></div>
+                    <e-charts style="height:260px" :chartData="echartData.user" :is-axis-chart="true"></e-charts>
                 </el-card>
                 <el-card shadow="hover">
-                    <div style="height:260px"></div>
+                    <e-charts style="height:260px" :chart-data="echartData.video"></e-charts>
                 </el-card>
             </div>
         </el-col>
@@ -42,8 +46,10 @@
 </template>
 
 <script>
+import ECharts from '@/components/ECharts';
 export default {
     name: 'Home',
+    components: { ECharts },
     data() {
         return {
             userImg: require('@/assets/images/user.png'),
@@ -85,15 +91,64 @@ export default {
                     color: '#5ab1ef'
                 }
             ],
-            tableData: []
+            tableData: [],
+            tableLabel: {
+                name: '课程名',
+                todayBuy: '今日购买',
+                monthBuy: '本月购买',
+                totalBuy: '总购买'
+            },
+            echartData: {
+                order: {
+                    xData: [],
+                    series: []
+                },
+                user: {
+                    xData: [],
+                    series: []
+                },
+                video: {
+                    series: []
+                }
+            }
         };
     },
     methods: {
         getTableData() {
             this.$http.get('/home/getData').then(res => {
                 res = res.data;
-                this.tableData = res.data.videoData;
-                console.log(this.tableData);
+                this.tableData = res.data.tableData;
+                console.log(res.data);
+                const order = res.data.orderData;
+                this.echartData.order.xData = order.date;
+                let keyArray = Object.keys(order.data[0]);
+                console.log(keyArray);
+                keyArray.forEach(key => {
+                    this.echartData.order.series.push({
+                        name: key === 'wechat' ? 'xiaochengxu' : key,
+                        data: order.data.map(item => item[key]),
+                        type: 'line'
+                    });
+                });
+                //用户柱状图
+                this.echartData.user.xData = res.data.userData.map(item => item.date);
+                this.echartData.user.series.push(
+                    {
+                        name: '新增用户',
+                        data: res.data.userData.map(item => item.new),
+                        type: 'bar'
+                    },
+                    {
+                        name: '活跃用户',
+                        data: res.data.userData.map(item => item.active),
+                        type: 'bar'
+                    }
+                );
+                //视频饼图
+                this.echartData.video.series.push({
+                    data: res.data.videoData,
+                    type: 'pie'
+                });
             });
         }
     },

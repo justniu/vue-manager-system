@@ -70,6 +70,10 @@ npm installl mockjs
 	*/
 	```
 	* Mock.Random()
-		* 随机生成数据 	 	
+		* 随机生成数据 	 	  
+
+
+### echarts 
+使用JavaScript实现的开源可视化库，底层依赖矢量图形库ZRender 
   
 	
