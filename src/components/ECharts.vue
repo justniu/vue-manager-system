@@ -80,6 +80,9 @@ export default {
     computed: {
         options() {
             return this.isAxisChart ? this.axisOption : this.normalOption;
+        },
+        isCollapse() {
+            return this.$store.state.tab.isCollapse;
         }
     },
     watch: {
@@ -88,6 +91,9 @@ export default {
                 this.initChart();
             },
             deep: true
+        },
+        isCollapse() {
+            setTimeout(() => this.resizeChart(), 300);
         }
     },
     methods: {
@@ -107,7 +113,16 @@ export default {
             } else {
                 this.normalOption.series = this.chartData.series;
             }
+        },
+        resizeChart() {
+            this.echart ? this.echart.resize() : '';
         }
+    },
+    mounted() {
+        window.addEventListener('resize', this.resizeChart);
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.resizeChart);
     }
 };
 </script>

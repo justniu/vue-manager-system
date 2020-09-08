@@ -75,5 +75,10 @@ npm installl mockjs
 
 ### echarts 
 使用JavaScript实现的开源可视化库，底层依赖矢量图形库ZRender 
-  
+
+#### Echart封装总结 
+* 观察文档，考虑组件需要的基本参数 [ECharts](https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts)
+* 参数筛选，分为从父组件传来的参数和自身的参数
+* 完善组件，观察设计图，找不同，在文档中寻找对应的配置项
+* 细节优化，考虑多种情况下，图表自适应处理
 	

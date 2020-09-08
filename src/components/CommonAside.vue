@@ -8,6 +8,7 @@
         active-text-color="#ffd04b"
         :collapse="isCollapse"
     >
+        <h3 v-show="!isCollapse">后台管理系统</h3>
         <el-menu-item :index="item.path" v-for="item in noChildren" :key="item.path" @click="clickMenu(item)">
             <i :class="'el-icon-' + item.icon"></i>
             <span slot="title">{{ item.label }}</span>
@@ -90,10 +91,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .el-menu {
     height: 100vh;
     border: none;
+    h3 {
+        color: #ffffff;
+        //text-align: center;
+        margin-left: 20px;
+        line-height: 48px;
+    }
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
