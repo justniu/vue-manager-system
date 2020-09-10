@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
     display: flex;
     height: 100%;
@@ -55,6 +55,9 @@ header {
 .l-content {
     display: flex;
     align-items: center;
+    .el-button {
+        margin-right: 20px !important;
+    }
 }
 </style>
 <style lang="scss">
@@ -68,8 +71,5 @@ header {
             color: #ffffff;
         }
     }
-}
-.el-button {
-    margin-right: 20px !important;
 }
 </style>

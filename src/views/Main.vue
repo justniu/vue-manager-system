@@ -23,8 +23,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .el-header {
     background-color: #333;
+}
+.el-main {
+    padding-top: 10px;
 }
 </style>
