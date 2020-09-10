@@ -95,5 +95,64 @@ npm installl mockjs
 		* total: 数据条数总计
 		* page: 当前页数
 	* 加载状态
-		* loading: 布尔值   
+		* loading: 布尔值 
+ 
+### 企业开发权限管理
+* 什么是权限管理
+	* 根据不同用户，返回不同数据（菜单）
+	* 严格控制用户权限
+	* 实现思路
+		* 动态路由
+		* 后端返回数据格式要求
+		* 触发时机
+		* 实现思路
+
+##### 权限管理之动态返回菜单的实现
+* 更改路由表
+	* 根据是否需要权限的路由分类
+* vuex里补充mutations
+	* 保存菜单
+	* 动态添加菜单
+* 生成路由的时机
+	* 登录时
+	* 刷新时
+
+##### 权限管理之路由守卫
+* permission.js中返回token
+* 登录时保存token
+	* 保存在vuex里
+	* 保存在cookie里
+* 路由守卫根据判断token存不存在，判断用户刷新跳转
+```
+// 添加路由守卫拦截，判断用户登录状态以跳转到对应页面
+router.beforeEach((to, from, next) => {
+    store.commit('getToken');
+    let token = store.state.user.token;
+    if (!token && to.name !== 'login') {
+        next({ name: 'login' });
+    } else {
+        next();
+    }
+});
+
+```
+
+## 总结
+* 调试方法
+	* 通过vue-devtool调试
+	* 通过console.log输出调试
+* 组件封装思路
+	* 判断基本参数
+		* 哪些写死
+		* 哪些需要传递进来
+	* 拓展
+		* 自定义事件，判断传出哪些参数
+		* 插槽拓展
+	* 优化
+		* 提高适应性
+			* v-if,v-else根据父组件传入条件生成对应的模板
+* Echarts
+	* [文档](https://echarts.apache.org/zh/option.html#title)
+* @click.native
+vue中的click事件都是经过封装的，一些组件的click事件被阻止，可以通过.native方式调用原生的DOM事件
 	

@@ -68,14 +68,14 @@ export default {
                                 name: 'home',
                                 label: '首页',
                                 icon: 's-home',
-                                url: 'Home/Home'
+                                url: 'home/Home'
                             },
                             {
                                 path: '/video',
                                 name: 'video',
                                 label: '视频管理页',
                                 icon: 'video-play',
-                                url: 'VideoManage/VideoManage'
+                                url: 'videoManage/VideoManage'
                             }
                         ],
                         token: Mock.Random.guid(),

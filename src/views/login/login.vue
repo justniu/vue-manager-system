@@ -38,7 +38,7 @@ export default {
                     this.$store.commit('clearMenu');
                     // 设置侧边栏菜单
                     this.$store.commit('setMenu', res.data.menu);
-                    // this.$store.commit('setToken', res.data.token);
+                    this.$store.commit('setToken', res.data.token);
                     this.$store.commit('addMenu', this.$router);
                     this.$router.push({ name: 'home' });
                 } else {
@@ -55,7 +55,7 @@ export default {
     margin: 0;
     padding: 0;
     height: 100vh;
-    //background: url('../../assets/images/bg.jpg') no-repeat;
+    background: url('../../assets/images/bg.jpg') no-repeat;
     // background: #222;
     background-size: cover;
 }
