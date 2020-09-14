@@ -23,14 +23,14 @@ export default {
                                 name: 'video',
                                 label: '视频管理页',
                                 icon: 'video-play',
-                                url: 'videoManage/VideoManage'
+                                url: 'videomanage/VideoManage'
                             },
                             {
                                 path: '/user',
                                 name: 'user',
                                 label: '用户管理页',
                                 icon: 'user',
-                                url: 'userManage/UserManage'
+                                url: 'usermanage/UserManage'
                             },
                             {
                                 label: '其他',
@@ -75,7 +75,7 @@ export default {
                                 name: 'video',
                                 label: '视频管理页',
                                 icon: 'video-play',
-                                url: 'videoManage/VideoManage'
+                                url: 'videomanage/VideoManage'
                             }
                         ],
                         token: Mock.Random.guid(),
