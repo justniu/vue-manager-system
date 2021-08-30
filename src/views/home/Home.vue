@@ -118,6 +118,7 @@ export default {
             this.$http.get('/home/getData').then(res => {
                 res = res.data;
                 this.tableData = res.data.tableData;
+                console.log(this.tableData);
                 console.log(res.data);
                 const order = res.data.orderData;
                 this.echartData.order.xData = order.date;
